@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENCDESC Challenge</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>ENCDESC - Encriptador/Desencriptador de texto</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="left-column">
+                <textarea id="input_text" name="ingreso_texto" placeholder="Ingrese el texto aquí"></textarea>
+                <p>No se aceptan mayúsculas, tildes ni caracteres especiales</p>
+                <div class="left-column-buttons">
+                    <button id="encrypt_button">Encriptar</button>
+                    <button id="decrypt_button">Desencriptar</button>
+                    <button id="clear_input_button">Limpiar</button>
+                </div>
+            </div>
+            <div class="right-column">
+                <textarea id="visualizar_text" name="visualizar_texto" readonly></textarea>
+                <div class="right-column-buttons">
+                    <button id="copy_button">Copiar</button>
+                    <button id="clear_visual_button">Limpiar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Desarrollado por Walter J. Torres Llanos en julio del 2024.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

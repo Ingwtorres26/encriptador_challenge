@@ -39,12 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Validar el texto ingresado
     function isValidText(text) {
         const regex = /^[a-z\s]+$/; // Solo letras minúsculas y espacios
-        return regex.test(text);
+        return regex.test(text) && !/[A-ZÁÉÍÓÚÜÑ]/.test(text); // También verifica mayúsculas y tildes
     }
 
     // Mostrar advertencia
-    function showWarning() {
+    function showWarning(message) {
         warningMessage.classList.remove('hidden');
+        warningMessage.innerHTML = message;
     }
 
     // Ocultar advertencia
@@ -58,8 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isValidText(text)) {
             visualizarText.value = encrypt(text);
             hideWarning();
+        } else if (text.trim() === '') {
+            showWarning("No se ha detectado ningún mensaje, por favor verifique e intente de nuevo.");
         } else {
-            showWarning();
+            showWarning("¡WARNING! NO SE HA PODIDO ENCRIPTAR PORQUE SE HAN DETECTADO MAYÚSCULAS, TILDES O CARACTERES ESPECIALES");
         }
     });
 
@@ -70,14 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
             visualizarText.value = decrypt(text);
             hideWarning();
         } else {
-            showWarning();
+            showWarning("¡WARNING! NO SE HA PODIDO DESENCRIPTAR PORQUE SE HAN DETECTADO MAYÚSCULAS, TILDES O CARACTERES ESPECIALES");
         }
     });
 
     // Evento de copiar al portapapeles
     copyButton.addEventListener('click', () => {
         visualizarText.select();
-        document.execCommand('copy');
+        try {
+            document.execCommand('copy');
+        } catch (e) {
+            console.error('Error al copiar al portapapeles', e);
+        }
     });
 
     // Evento de limpiar entrada

@@ -15,6 +15,21 @@ header {
     padding: 10px;
     text-align: center;
     color: #00FF00;
+    position: relative; /* Habilita el posicionamiento absoluto dentro del header */
+}
+
+header .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    z-index: 10; /* Asegura que el logo esté por encima de otros elementos */
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    padding-left: 120px; /* Deja espacio para el logo en el lado izquierdo */
 }
 
 main {
@@ -29,7 +44,7 @@ main {
 .container {
     display: flex;
     width: 100%;
-    height: 100%; /* pERMITE que el contenedor ocupe el alto completo */
+    height: 100%; /* Permite que el contenedor ocupe el alto completo */
     max-width: 1200px;
     gap: 20px;
     color: #00FF00;
@@ -44,6 +59,7 @@ main {
     gap: 10px;
     height: 100%; 
     background: rgba(0,0,0,0.5); 
+    flex: 2; /* Organiza el ancho de la columna */
 }
 
 .right-column {
@@ -55,13 +71,6 @@ main {
     gap: 70px;
     height: 100%;
     background: rgba(0,0,0,0.5); 
-}
-
-.left-column {
-    flex: 2; /* Organiza el ancho de la columna  */
-}
-
-.right-column {
     flex: 1; /* Organiza el ancho de la columna en un tercio del ancho disponible */
 }
 
@@ -92,7 +101,6 @@ button {
 button:hover {
     background-color: rgba(0, 255, 0, 0.2); /* Resalta el color de fondo del botón al pasar el cursor */
 }
-
 
 .left-column-buttons {
     display: flex; /* Organiza los botones en una fila */
@@ -141,11 +149,29 @@ footer {
     textarea {
         height: 200px; /* Ajusta el alto del textarea en pantallas pequeñas */
     }
+
+    header .logo {
+        width: 40px; /* Reduce el tamaño del logo en pantallas medianas */
+        top: 5px; /* Ajusta la posición si es necesario */
+        left: 5px; /* Ajusta la posición si es necesario */
+    }
+    
+    header h1 {
+        font-size: 20px; /* Ajusta el tamaño de la fuente del encabezado */
+        padding-left: 90px; /* Ajusta el padding para dejar espacio para el logo en pantallas medianas */
+    }
 }
 
 @media (max-width: 480px) {
+    header .logo {
+        width: 30px; /* Reduce aún más el tamaño del logo en pantallas pequeñas */
+        top: 5px; /* Ajusta la posición si es necesario */
+        left: 5px; /* Ajusta la posición si es necesario */
+    }
+    
     header h1 {
-        font-size: 24px; /* Ajusta el tamaño de la fuente del encabezado en pantallas muy pequeñas */
+        font-size: 16px; /* Ajusta el tamaño de la fuente del encabezado */
+        padding-left: 70px; /* Ajusta el padding para dejar espacio para el logo en pantallas pequeñas */
     }
 
     button {

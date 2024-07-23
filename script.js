@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Evento de encriptar
     encryptButton.addEventListener('click', () => {
         const text = inputText.value;
-        if (isValidText(text)) {
+        if (text.trim() === '') {
+            showWarning("No se ha detectado ningún mensaje, por favor verifique e intente de nuevo.");
+        } else if (isValidText(text)) {
             visualizarText.value = encrypt(text);
             hideWarning();
-        } else if (text.trim() === '') {
-            showWarning("No se ha detectado ningún mensaje, por favor verifique e intente de nuevo.");
         } else {
             showWarning("¡WARNING! NO SE HA PODIDO ENCRIPTAR PORQUE SE HAN DETECTADO MAYÚSCULAS, TILDES O CARACTERES ESPECIALES");
         }
@@ -69,7 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Evento de desencriptar
     decryptButton.addEventListener('click', () => {
         const text = inputText.value;
-        if (isValidText(text)) {
+        if (text.trim() === '') {
+            showWarning("No se ha detectado ningún mensaje, por favor verifique e intente de nuevo.");
+        } else if (isValidText(text)) {
             visualizarText.value = decrypt(text);
             hideWarning();
         } else {

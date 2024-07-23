@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearVisualButton = document.getElementById('clear_visual_button');
     const inputText = document.getElementById('input_text');
     const visualizarText = document.getElementById('visualizar_text');
+    const warningMessage = document.getElementById('warning_message');
 
     // Función para encriptar
     function encrypt(text) {
@@ -35,30 +36,57 @@ document.addEventListener('DOMContentLoaded', () => {
         return result;
     }
 
-    // Encriptar el texto
+    // Validar el texto ingresado
+    function isValidText(text) {
+        const regex = /^[a-z\s]+$/; // Solo letras minúsculas y espacios
+        return regex.test(text);
+    }
+
+    // Mostrar advertencia
+    function showWarning() {
+        warningMessage.classList.remove('hidden');
+    }
+
+    // Ocultar advertencia
+    function hideWarning() {
+        warningMessage.classList.add('hidden');
+    }
+
+    // Evento de encriptar
     encryptButton.addEventListener('click', () => {
-        const text = inputText.value.toLowerCase();
-        visualizarText.value = encrypt(text);
+        const text = inputText.value;
+        if (isValidText(text)) {
+            visualizarText.value = encrypt(text);
+            hideWarning();
+        } else {
+            showWarning();
+        }
     });
 
-    // Desencriptar el texto
+    // Evento de desencriptar
     decryptButton.addEventListener('click', () => {
-        const text = inputText.value.toLowerCase();
-        visualizarText.value = decrypt(text);
+        const text = inputText.value;
+        if (isValidText(text)) {
+            visualizarText.value = decrypt(text);
+            hideWarning();
+        } else {
+            showWarning();
+        }
     });
 
-    // Copiar el texto al portapapeles
+    // Evento de copiar al portapapeles
     copyButton.addEventListener('click', () => {
         visualizarText.select();
         document.execCommand('copy');
     });
 
-    // Limpiar el área de ingreso de texto
+    // Evento de limpiar entrada
     clearInputButton.addEventListener('click', () => {
         inputText.value = '';
+        hideWarning(); // Ocultar el mensaje de advertencia
     });
 
-    // Limpiar el área de visualización
+    // Evento de limpiar visualización
     clearVisualButton.addEventListener('click', () => {
         visualizarText.value = '';
     });

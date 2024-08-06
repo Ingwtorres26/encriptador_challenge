@@ -169,12 +169,6 @@ footer {
         font-size: 20px; /* Ajusta el tamaño de la fuente del encabezado */
         padding-left: 90px; /* Ajusta el padding para dejar espacio para el logo en pantallas medianas */
     }
-
-    .theme-toggle-button {
-        top: 8px;
-        right: 8px;
-        font-size: 18px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -191,12 +185,6 @@ footer {
 
     button {
         font-size: 14px; /* Ajusta el tamaño de la fuente de los botones en pantallas muy pequeñas */
-    }
-
-    .theme-toggle-button {
-        top: 6px;
-        right: 6px;
-        font-size: 16px;
     }
 }
 

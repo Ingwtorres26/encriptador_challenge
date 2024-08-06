@@ -249,10 +249,10 @@ footer {
 
 /* Estilo para el logo en modo claro */
 .logo {
-    content: url('./assets/logo_alura_blanco.png');
+    content: url('./assets/blanco.png');
 }
 
 /* Estilo para el logo en modo oscuro */
 .dark-mode .logo {
-    content: url('./assets/logo_alura.png');
+    content: url('./assets/verde.png');
 }

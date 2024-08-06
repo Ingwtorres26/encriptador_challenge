@@ -7,6 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputText = document.getElementById('input_text');
     const visualizarText = document.getElementById('visualizar_text');
     const warningMessage = document.getElementById('warning_message');
+    const themeToggleButton = document.getElementById('theme_toggle_button');
+    const logo = document.querySelector('.logo'); // Selecciona el elemento de logo
+
+    // Inicializa el tema según el estado guardado
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        themeToggleButton.textContent = '☀️'; // Cambia el ícono para el tema claro
+        logo.src = './assets/logo_alura.png'; // Cambia el logo al de tema oscuro
+    } else {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+        themeToggleButton.textContent = '🌙'; // Cambia el ícono para el tema oscuro
+        logo.src = './assets/logo_alura_blanco.png'; // Cambia el logo al de tema claro
+    }
 
     // Función para encriptar
     function encrypt(text) {
@@ -92,11 +107,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Evento de limpiar entrada
     clearInputButton.addEventListener('click', () => {
         inputText.value = '';
+        visualizarText.value = ''; // Limpia también el área de visualización
         hideWarning(); // Ocultar el mensaje de advertencia
     });
 
     // Evento de limpiar visualización
     clearVisualButton.addEventListener('click', () => {
         visualizarText.value = '';
+    });
+
+    // Evento para cambiar el tema
+    themeToggleButton.addEventListener('click', () => {
+        if (document.body.classList.contains('dark-mode')) {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+            themeToggleButton.textContent = '🌙'; // Cambia el ícono a oscuro
+            logo.src = './assets/logo_alura_blanco.png'; // Cambia el logo al de tema claro
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+            themeToggleButton.textContent = '☀️'; // Cambia el ícono a claro
+            logo.src = './assets/logo_alura.png'; // Cambia el logo al de tema oscuro
+            localStorage.setItem('theme', 'dark');
+        }
     });
 });

@@ -1,10 +1,10 @@
 body {
     margin: 0;
-    font-family: 'VT323', monospace;
+    font-family: 'Roboto Slab', serif, monospace;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../assets/matrix_background.jpg');
+    background-image: url('../assets/anime_image.jpg');
     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen en el fondo */
@@ -14,8 +14,9 @@ header {
     background: transparent;
     padding: 10px;
     text-align: center;
-    color: #00FF00;
+    color: #FFFFFF;
     position: relative; /* Habilita el posicionamiento absoluto dentro del header */
+    font-family: 'Roboto Slab', serif;
 }
 
 header .logo {
@@ -30,6 +31,7 @@ header h1 {
     margin: 0;
     padding: 0;
     padding-left: 120px; /* Deja espacio para el logo en el lado izquierdo */
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 main {
@@ -39,6 +41,7 @@ main {
     align-items: stretch; /* Permite a las columnas ocupar el alto completo */
     padding: 20px;
     box-sizing: border-box; /* Permite que el padding no afecte el alto total */
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 .container {
@@ -47,7 +50,8 @@ main {
     height: 100%; /* Permite que el contenedor ocupe el alto completo */
     max-width: 1200px;
     gap: 20px;
-    color: #00FF00;
+    color: #FFFFFF;
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 .left-column {
@@ -60,6 +64,7 @@ main {
     height: 100%; 
     background: rgba(0,0,0,0.5); 
     flex: 2; /* Organiza el ancho de la columna */
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 .right-column {
@@ -72,6 +77,7 @@ main {
     height: 100%;
     background: rgba(0,0,0,0.5); 
     flex: 1; /* Organiza el ancho de la columna en un tercio del ancho disponible */
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 textarea {
@@ -81,10 +87,10 @@ textarea {
     border-radius: 4px;
     border: 1px solid #ddd;
     box-sizing: border-box;
-    color: #00FF00;
+    color: #FFFFFF;
     resize: none; /* Evita que el usuario redimensione el área de texto en el navegador */
     background: rgba(0,0,0,0.4); 
-    font-family: 'VT323', monospace; /* Aplicar fuente similar al estilo The Matrix */
+    font-family: 'Roboto Slab', serif, monospace; /* Aplicar fuente similar al estilo The Matrix */
 }
 
 button {
@@ -92,14 +98,15 @@ button {
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: transparent;
-    color: #00FF00; 
+    color: #FFFFFF; 
     cursor: pointer;
     font-size: 16px;
     margin: 5px; /* Espacio entre botones */
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 button:hover {
-    background-color: rgba(0, 255, 0, 0.2); /* Resalta el color de fondo del botón al pasar el cursor */
+    background-color: rgba(242, 247, 246, 0.673); /* Resalta el color de fondo del botón al pasar el cursor en el modo claro */
 }
 
 .left-column-buttons {
@@ -116,15 +123,17 @@ footer {
     background: transparent;
     padding: 10px;
     text-align: center;
-    color: #00FF00;
+    color: #FFFFFF; /* Color del texto en el footer por defecto (tema claro) */
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 /* Mensaje de advertencia */
 #warning_message {
-    color: #FFFF00;
+    color: #FFFFFF;
     text-align: center;
     margin-top: 10px;
     font-size: 18px;
+    font-family: 'Roboto Slab', serif, monospace;
 }
 
 .hidden {
@@ -177,4 +186,73 @@ footer {
     button {
         font-size: 14px; /* Ajusta el tamaño de la fuente de los botones en pantallas muy pequeñas */
     }
+}
+
+/* Estilo del botón de cambio de tema */
+.theme-toggle-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Estilos para el tema oscuro */
+.dark-mode {
+    background-image: url('../assets/matrix_background.jpg');
+    color: #00FF00; /* Cambia el color del texto a verde brillante */
+    font-family: 'VT323', monospace; /* Cambia la fuente a VT323 en modo oscuro */
+}
+
+.dark-mode header {
+    color: #00FF00; /* Cambia el color del texto en el header a verde brillante */
+    font-family: 'VT323', monospace; /* Cambia la fuente a VT323 en modo oscuro */
+}
+
+.dark-mode .container {
+    color: #00FF00; /* Cambia el color del texto en el contenedor a verde brillante */
+    font-family: 'VT323', monospace; /* Cambia la fuente a VT323 en modo oscuro */
+}
+
+.dark-mode textarea {
+    color: #00FF00; /* Cambia el color del texto en el área de texto a verde brillante */
+    font-family: 'VT323', monospace; /* Cambia la fuente a VT323 en modo oscuro */
+}
+
+.dark-mode button {
+    color: #00FF00; /* Cambia el color del texto en los botones a verde brillante */
+    font-family: 'VT323', monospace; /* Cambia la fuente a VT323 en modo oscuro */
+}
+
+.dark-mode button:hover {
+    background-color: rgba(0, 255, 0, 0.2); /* Resalta el color de fondo del botón al pasar el cursor en el modo oscuro */
+}
+
+.dark-mode #warning_message {
+    color: #FFFF00; /* Cambia el color del mensaje de advertencia a verde brillante */
+    font-family: 'VT323', monospace; /* Cambia la fuente a VT323 en modo oscuro */
+}
+
+.dark-mode footer {
+    color: #00FF00; /* Cambia el color del texto en el footer a verde brillante */
+}
+
+/* Estilos para el tema claro */
+.light-mode {
+    background-image: url('../assets/anime_image.jpg'); /* Cambia la imagen según el tema claro */
+    color: #000000;
+    font-family: 'Roboto Slab', serif, monospace; /* Mantiene la fuente Roboto Slab en modo claro */
+}
+
+/* Estilo para el logo en modo claro */
+.logo {
+    content: url('./assets/logo_alura_blanco.png');
+}
+
+/* Estilo para el logo en modo oscuro */
+.dark-mode .logo {
+    content: url('./assets/logo_alura.png');
 }

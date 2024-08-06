@@ -3,6 +3,8 @@ Este proyecto fue elaborado para dar respuesta al requerimiento del curso "Pract
 
 El proyecto combina las habilidades aprendidas en los cursos de HTML, JavaScript y CSS.
 
+Se ha realizado una actualziación que permite realziar el cambio de tema, aplicandose directamente sobre el imagen de fondo y las fuentes. Todo esto a través de la inclusión de un theme_toggle_button, que permita al usario elegrir el tema de su preferencia.
+
 HTML: Archivo index.html
 Head
 Título de la página: ENCDESC
